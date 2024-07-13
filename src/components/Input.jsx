@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Input = ({taskList, setTaskList}) => {
+const Input = ({ taskList, setTaskList }) => {
     const [input, setInput] = useState("");
     console.log({ input });
     const handelAddTask = (e) => {
@@ -10,15 +10,18 @@ const Input = ({taskList, setTaskList}) => {
     }
     return (
         <>
-            <form>
+            <form className="flex flex-row items-center gap-3">
                 <input
-                    className="border rounded px-2"
+                    className="border rounded-lg py-1.5 px-2.5  text-lg"
                     type="text"
                     placeholder="Add a task"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
-                <button onClick={handelAddTask}>Add</button>
+                <button
+                    className="bg-violet-500 text-white py-2 px-3.5 rounded font-semibold hover:opacity-70"
+                    onClick={handelAddTask}
+                >Add</button>
             </form>
         </>
     )
