@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Input from './components/Input';
 import { useState } from 'react';
+import Board from './components/Board';
 
 function App() {
   const [taskList, setTaskList] = useState([])
@@ -11,9 +12,12 @@ function App() {
     <div className='flex flex-col items-center justify-center py-8 gap-4'>
       <h1 className='text-xl font-semibold'>To Do Board</h1>
       <Input taskList={taskList} setTaskList={setTaskList} />
-      <div>
-        {taskList.map((task,index) => 
-          <li key={index}>{task}</li> // 1. Note
+      <div className='grid grid-cols-3 px-4 sm:px-8 md:px-10 lg:px-12'>
+        {taskList.map((task,index) => // 1. Note
+          <Board
+          key={index}
+          task={task}
+          />
         )}
       </div>
     </div>
